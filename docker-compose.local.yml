@@ -30,8 +30,10 @@ services:
       dockerfile: ./compose/production/postgres/Dockerfile
     image: ccdl_production_postgres
     container_name: ccdl_local_postgres
+    ports:
+    - "5433:5432"
     volumes:
-      - ccdl_local_postgres_data:/var/lib/postgresql/18/docker
+      - ccdl_local_postgres_data:/var/lib/postgresql
       - ccdl_local_postgres_data_backups:/backups
     env_file:
       - ./.envs/.local/.postgres

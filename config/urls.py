@@ -6,10 +6,11 @@ from django.urls import include
 from django.urls import path
 from django.views import defaults as default_views
 from django.views.generic import TemplateView
-
+from graphene_django.views import GraphQLView
 from .api import api
 
 urlpatterns = [
+    path("graphql/", GraphQLView.as_view(graphiql=True)),
     path("", TemplateView.as_view(template_name="pages/home.html"), name="home"),
     path(
         "about/",

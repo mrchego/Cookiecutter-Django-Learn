@@ -72,6 +72,7 @@ DJANGO_APPS = [
     "django.forms",
 ]
 THIRD_PARTY_APPS = [
+    "graphene_django",
     "crispy_forms",
     "crispy_bootstrap5",
     "allauth",
@@ -86,7 +87,7 @@ THIRD_PARTY_APPS = [
 
 LOCAL_APPS = [
     "ccdl.users",
-    # Your stuff: custom apps go here
+    "apps.core",
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -326,3 +327,6 @@ SOCIALACCOUNT_FORMS = {"signup": "ccdl.users.forms.UserSocialSignupForm"}
 
 # Your stuff...
 # ------------------------------------------------------------------------------
+GRAPHENE = {
+    "SCHEMA": "config.schema.schema"
+}
